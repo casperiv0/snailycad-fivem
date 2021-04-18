@@ -1,4 +1,4 @@
- name: Check ESlint
+name: Check ESlint
 
 on: [push, pull_request]
 
