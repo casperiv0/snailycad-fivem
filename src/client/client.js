@@ -12,7 +12,7 @@ onNet("sn:towCall", ({ name, description }) => {
     "CHAR_PROPERTY_TOWING_IMPOUND",
     0,
     "Your Call has been reported to any available towers!",
-    "Tow Truck Service"
+    "Tow Truck Service",
   );
 });
 
@@ -29,7 +29,7 @@ onNet("sn:taxiCall", ({ name, description }) => {
     "CHAR_TAXI",
     0,
     "Your Call has been reported to any available taxi drivers!",
-    "Taxi Service"
+    "Taxi Service",
   );
 });
 
@@ -47,7 +47,7 @@ onNet("sn:911Call", ({ name, description }) => {
     "CHAR_CALL911",
     0,
     "Your call has been reported to the emergency services",
-    "Emergency Services"
+    "Emergency Services",
   );
 });
 
