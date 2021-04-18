@@ -1,0 +1,23 @@
+{
+  "name": "snailycad-fivem",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@citizenfx/client": "^2.0.3825-1",
+    "@citizenfx/server": "^2.0.3825-1",
+    "axios": "^0.21.1",
+    "webpack": "^5.33.2"
+  },
+  "devDependencies": {
+    "debug": "^4.3.1",
+    "webpack-cli": "^4.6.0"
+  }
+}
