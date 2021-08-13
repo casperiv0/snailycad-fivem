@@ -25,9 +25,7 @@ async function zipRelease() {
   archive.pipe(output);
 
   archive
-    .append("fxmanifest.lua", {
-      name: "fxmanifest.lua",
-    })
+    .file("fxmanifest.lua")
     .directory("dist/client", "client")
     .directory("dist/server", "server")
     .finalize();
