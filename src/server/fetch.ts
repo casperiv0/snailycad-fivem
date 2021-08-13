@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios";
+import { logger } from "./util/logger";
 
 export async function fetch<T = unknown>(
   path: string,
@@ -7,7 +8,7 @@ export async function fetch<T = unknown>(
   const url = GetConvar("snailycad_url", "null");
 
   if (url === "null") {
-    // todo: setup logger
+    logger.warn("No `snailycad_url` convar was found in your server.cfg");
     return;
   }
 

@@ -16,6 +16,7 @@
     "@citizenfx/client": "^2.0.4359-1",
     "@citizenfx/server": "^2.0.4359-1",
     "axios": "^0.21.1",
+    "chalk": "^4.1.2",
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
