@@ -12,6 +12,7 @@ async function make() {
     entryPoints: paths,
     format: "cjs",
     outdir: "dist",
+    treeShaking: true,
   });
 }
 
