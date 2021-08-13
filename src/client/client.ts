@@ -1,5 +1,3 @@
-/// <reference path="../../node_modules/@citizenfx/client/natives_universal.d.ts" />
-
 onNet("sn:towCall", ({ name, description }) => {
   const lastStreet = GetStreetNameAtCoord(x, y, z);
   const lastStreetName = GetStreetNameFromHashKey(lastStreet);
@@ -34,7 +32,7 @@ onNet("sn:taxiCall", ({ name, description }) => {
 });
 
 onNet("sn:911Call", ({ name, description }) => {
-  const [x, y, z] = GetEntityCoords(GetPlayerPed(-1));
+  const [x, y, z] = GetEntityCoords(GetPlayerPed(-1), true);
 
   const lastStreet = GetStreetNameAtCoord(x, y, z);
   const lastStreetName = GetStreetNameFromHashKey(lastStreet);
@@ -54,5 +52,5 @@ onNet("sn:911Call", ({ name, description }) => {
 function createNotification(picture, icon, message, title) {
   SetNotificationTextEntry("STRING");
   AddTextComponentString(message);
-  SetNotificationMessage(picture, picture, true, icon, title);
+  SetNotificationMessage(picture, picture, true, icon, title, "Call Event");
 }
