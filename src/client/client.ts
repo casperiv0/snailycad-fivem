@@ -1,10 +1,19 @@
 import { IconTypes } from "./types/IconTypes";
 import { TextureTypes } from "./types/TextureTypes";
+import { getPostal } from "./util/getPostal";
+
+const usePostal = GetConvar("snailycad_use_postal", "false") === "true";
+
+console.log("usePostal", usePostal);
 
 onNet("sn:towCall", ({ name, description }) => {
   const [x, y, z] = GetEntityCoords(GetPlayerPed(-1), true);
   const [lastStreet] = GetStreetNameAtCoord(x!, y!, z!);
-  const lastStreetName = GetStreetNameFromHashKey(lastStreet);
+  let lastStreetName = GetStreetNameFromHashKey(lastStreet);
+
+  if (usePostal) {
+    lastStreetName = `${getPostal()} ${lastStreetName}`;
+  }
 
   setImmediate(() => {
     emitNet("sn:towCallUpdate", { street: lastStreetName, name, description });
@@ -21,7 +30,11 @@ onNet("sn:towCall", ({ name, description }) => {
 onNet("sn:taxiCall", ({ name, description }) => {
   const [x, y, z] = GetEntityCoords(GetPlayerPed(-1), true);
   const [lastStreet] = GetStreetNameAtCoord(x!, y!, z!);
-  const lastStreetName = GetStreetNameFromHashKey(lastStreet);
+  let lastStreetName = GetStreetNameFromHashKey(lastStreet);
+
+  if (usePostal) {
+    lastStreetName = `${getPostal()} ${lastStreetName}`;
+  }
 
   setImmediate(() => {
     emitNet("sn:taxiCallUpdate", { street: lastStreetName, name, description });
@@ -38,7 +51,11 @@ onNet("sn:taxiCall", ({ name, description }) => {
 onNet("sn:911Call", ({ name, description }) => {
   const [x, y, z] = GetEntityCoords(GetPlayerPed(-1), true);
   const [lastStreet] = GetStreetNameAtCoord(x!, y!, z!);
-  const lastStreetName = GetStreetNameFromHashKey(lastStreet);
+  let lastStreetName = GetStreetNameFromHashKey(lastStreet);
+
+  if (usePostal) {
+    lastStreetName = `${getPostal()} ${lastStreetName}`;
+  }
 
   setImmediate(() => {
     emitNet("sn:911CallUpdate", { street: lastStreetName, name, description, x, y, z });

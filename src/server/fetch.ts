@@ -1,10 +1,7 @@
-import axios, { AxiosResponse } from "axios";
 import { logger } from "./util/logger";
+import got from "got";
 
-export async function fetch<T = unknown>(
-  path: string,
-  data: T,
-): Promise<AxiosResponse | undefined> {
+export async function fetch<T = unknown>(path: string, data: T) {
   const url = GetConvar("snailycad_url", "null");
 
   if (url === "null") {
@@ -12,9 +9,8 @@ export async function fetch<T = unknown>(
     return;
   }
 
-  return axios({
+  return got(`${url}${path}`, {
     method: "POST",
-    data,
-    url: `${url}${path}`,
+    body: JSON.stringify(data),
   });
 }
