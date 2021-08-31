@@ -7,5 +7,5 @@ description 'Connect to your SnailyCAD'
 version '1.0.0'
 
 -- What to run
-client_script "./client/**/*.js"
-server_script "./server/**/*.js"
+client_script "./client/client.js"
+server_script "./server/server.js"

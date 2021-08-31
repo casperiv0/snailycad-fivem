@@ -9,10 +9,9 @@ async function make() {
   build({
     bundle: true,
     logLevel: "info",
-    entryPoints: paths,
+    entryPoints: ["./src/server/server.ts", "./src/client/client.ts"],
     format: "cjs",
     outdir: "dist",
-    treeShaking: true,
     platform: "node",
   });
 }

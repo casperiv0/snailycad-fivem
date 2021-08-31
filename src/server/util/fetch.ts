@@ -1,4 +1,4 @@
-import { logger } from "./util/logger";
+import { logger } from "./logger";
 import got from "got";
 
 export async function fetch<T = unknown>(path: string, data: T) {
